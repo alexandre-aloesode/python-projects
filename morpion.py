@@ -1,12 +1,11 @@
 board = [["-","-","-"], ["-","-","-"], ["-","-","-"]]
+running = True
 
 def board_display():
     for i in range(len(board)):
         for j in range(len(board[i])):
             print(board[i][j], end=' ')
         print()
-
-running = True
 
 def victory1(player1):
     if board[0][0] == "X" and board[0][1] == "X" and board[0][2] == "X":
@@ -66,7 +65,7 @@ action = input("Bonjour, souhaitez_vous jouer ou voir les scores? ")
 if action == "s":
     print("scores")
 
-elif action == "j":
+elif action == "jouer":
         user1 = input("Qui est le premier joueur? ")
         user2 = input("Qui est le second joueur? ")
     
@@ -93,4 +92,3 @@ elif action == "j":
             
 else:
     print("choix invalide")
-
