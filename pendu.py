@@ -29,7 +29,7 @@ print(crypted_word, "\n")
 
 while remlife >= 0:
     if remlife == 0:
-        print("Perdu !")
+        print("Perdu ! Le mot à trouver était "+chosen_word)
         break
     elif crypted_word == chosen_word:
         print("Gagné !")
