@@ -2,6 +2,9 @@ with open ("/home/alex/Github/python-projects/dico_france.txt", "r", encoding="I
     dico = f.read().split()
     import random
     chosen_word = (random.choice(dico))
+    chosen_word = chosen_word.replace("é", "e").replace("è", "e").replace("ê","e").replace("î", "i").replace("â", "a").replace("ô", "o").replace("û", "u").replace("ë", "e").replace("ï", "i")
+    chosen_word = chosen_word.upper()
+    print(chosen_word)
 
 crypted_word = ''
 for i in range(len(chosen_word)):
