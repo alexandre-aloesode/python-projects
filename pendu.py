@@ -4,16 +4,15 @@ with open ("/home/alex/Github/python-projects/dico_france.txt", "r", encoding="I
     chosen_word = (random.choice(dico))
     chosen_word = chosen_word.replace("é", "e").replace("è", "e").replace("ê","e").replace("î", "i").replace("â", "a").replace("ô", "o").replace("û", "u").replace("ë", "e").replace("ï", "i")
     chosen_word = chosen_word.upper()
-    print(chosen_word)
 
 crypted_word = ''
 for i in range(len(chosen_word)):
         crypted_word += '-'
 
-
-level = input("Bonjour, à quel niveau souhaites-tu jouer? facile, moyen ou expert?\n")
 history = []
 remlife = 0
+
+level = input("Bonjour, à quel niveau souhaites-tu jouer? facile, moyen ou expert?\n")
 
 if level == "facile":
     remlife = 10
@@ -49,6 +48,7 @@ while remlife >= 0:
         while len(letter) > 1:
             print("Une lettre à la fois !")
             letter = input("Quelle lettre proposes-tu? ")
+        letter = letter.upper()
         if letter in chosen_word:
             for i in range(len(chosen_word)):
                 if letter == chosen_word[i]:
