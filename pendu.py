@@ -13,28 +13,25 @@ while True:
 
     history = []
     remlife = 0
+    level = 0
 
-    level = input("A quel niveau souhaites-tu jouer? facile, moyen ou expert? Sinon tapes quit pour quitter le jeu.\n")
+    while level == 0:
+        level = input("A quel niveau souhaites-tu jouer? facile, moyen ou expert? Sinon tapes quit pour quitter le jeu.\n")
+        if level == "facile":
+            remlife = 10
+        elif level == "moyen":
+            remlife = 7
+        elif level == "expert":
+            remlife = 4
+        elif level == "quit":
+            print("A bientôt !")
+            level = 1
+        else:
+            print("Choix invalide\n")
+            level = 0
 
-    if level == "facile":
-        remlife = 10
-    elif level == "moyen":
-        remlife = 7
-    elif level == "expert":
-        remlife = 4
-    elif level == "quit":
-        print("A bientôt !")
-        break
-
-    while level != "facile" and level != "moyen" and level != "expert" and level != "quit":
-            print("choix invalide")
-            level = input("A quel niveau souhaites-tu jouer? facile, moyen ou expert?\n")
-            if level == "facile":
-                remlife = 10
-            elif level == "moyen":
-                remlife = 7
-            elif level == "expert":
-                remlife = 4
+    if level == 1:
+            break
 
     print("\n"+"Nombre de vies restantes: ",remlife,"\n")
     print("longueur du mot:",len(chosen_word),"\n")
