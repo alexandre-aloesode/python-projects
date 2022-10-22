@@ -1,4 +1,3 @@
-
 with open ("/home/alex/Github/python-projects/dico_france.txt", "r", encoding="ISO-8859-1") as f:
     dico = f.read().split()
     import random
@@ -19,8 +18,16 @@ elif level == "moyen":
     remlife = 7
 elif level == "expert":
     remlife = 4
-else:
-    print("choix invalide")
+
+while level != "facile" and level != "moyen" and level != "expert":
+        print("choix invalide")
+        level = input("A quel niveau souhaites-tu jouer? facile, moyen ou expert?\n")
+        if level == "facile":
+            remlife = 10
+        elif level == "moyen":
+            remlife = 7
+        elif level == "expert":
+            remlife = 4
 
 
 print("\n"+"Nombre de vies restantes: ",remlife,"\n")
@@ -36,6 +43,9 @@ while remlife >= 0:
         break  
     else:
         letter = input("Quelle lettre proposes-tu? ")
+        while len(letter) > 1:
+            print("Une lettre à la fois !")
+            letter = input("Quelle lettre proposes-tu? ")
         if letter in chosen_word:
             for i in range(len(chosen_word)):
                 if letter == chosen_word[i]:
@@ -48,6 +58,7 @@ while remlife >= 0:
             
         else:
             remlife = remlife -1
+            print("\n"+"Mauvais choix ! Essaies encore")
             print("\n"+"Nombre de vies restantes: ",remlife,"\n")
             history.append(letter)
             if level != "expert":
