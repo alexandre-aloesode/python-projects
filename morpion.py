@@ -2,6 +2,7 @@ board = [["-","-","-"], ["-","-","-"], ["-","-","-"]]
 running = True
 history = []
 check = ""
+draw = 0
 
 def board_display():
     for i in range(len(board)):
@@ -37,28 +38,28 @@ def victory1(player1):
 
 def victory2(player2): 
     if board[0][0] == "O" and board[0][1] == "O" and board[0][2] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[1][0] == "O" and board[1][1] == "O" and board[1][2] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[2][0] == "O" and board[2][1] == "O" and board[2][2] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[0][0] == "O" and board[1][0] == "O" and board[2][0] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[0][1] == "O" and board[1][1] == "O" and board[2][1] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[0][2] == "O" and board[1][2] == "O" and board[2][2] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[0][0] == "O" and board[1][1] == "O" and board[2][2] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
     elif board[0][2] == "O" and board[1][1] == "O" and board[2][0] == "O":
-        print(user2+"est le grand gagnant!")
+        print(user2+" est le grand gagnant!")
         return running == False
 
 def check_input(user):
@@ -74,14 +75,15 @@ def check_input(user):
 
 def ranking(winner):
     with open("/home/alex/Github/python-projects/score.txt", "w") as f:
-        f.write(winner+" 1")
-                
+            f.write(winner+" 1")
+
+
 action = input("Bonjour, souhaitez_vous jouer ou voir les scores?\n")
 
 if action == "s":
     print("scores")
 
-elif action == "j":
+elif action == "jouer":
         user1 = input("Qui est le premier joueur? ")
         user2 = input("Qui est le second joueur? ")
     
@@ -102,11 +104,12 @@ elif action == "j":
                 else:
                     board[ligne1-1][colonne1-1] = "X"
                     check = 2          
+            board_display()
             running = victory1(board)
             if running == False:
                 ranking(user1)
                 break
-            board_display()
+            
 
             play3, play4 = check_input(user2).split()
             ligne2 = int(play3)
@@ -121,9 +124,9 @@ elif action == "j":
                 else:
                     board[ligne2-1][colonne2-1] = "O"
                     check = 2
+            running = victory2(board)
             if running == False:
                 ranking(user2)
                 break
-            
 else:
     print("choix invalide")
