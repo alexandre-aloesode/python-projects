@@ -109,7 +109,9 @@ elif action == "jouer":
             if running == False:
                 ranking(user1)
                 break
-            
+            if "-" not in board[0][0] and "-" not in board[0][1] and "-" not in board[0][2] and "-" not in board[1][0] and "-" not in board[1][1] and "-" not in board[1][2] and "-" not in board[2][0] and "-" not in board[2][1] and "-" not in board[2][2]:
+                print ("Match nul !")
+                break
 
             play3, play4 = check_input(user2).split()
             ligne2 = int(play3)
