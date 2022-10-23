@@ -1,8 +1,5 @@
 board = [["-","-","-"], ["-","-","-"], ["-","-","-"]]
 running = True
-history = []
-check = ""
-draw = 0
 
 def board_display():
     for i in range(len(board)):
