@@ -4,7 +4,7 @@ while True:
         dico = f.read().split()
         import random
         chosen_word = (random.choice(dico))
-        chosen_word = chosen_word.replace("é", "e").replace("è", "e").replace("ê","e").replace("î", "i").replace("â", "a").replace("ô", "o").replace("û", "u").replace("ë", "e").replace("ï", "i").replace("œ","o e")
+        chosen_word = chosen_word.replace("é", "e").replace("è", "e").replace("ê","e").replace("î", "i").replace("â", "a").replace("ô", "o").replace("û", "u").replace("ë", "e").replace("ï", "i").replace("œ","oe")
         chosen_word = chosen_word.upper()
 
     crypted_word = ''
@@ -72,7 +72,7 @@ while True:
                 print(crypted_word, "\n")
 
     if crypted_word == chosen_word or remlife == 0:
-        replay = input(print("On rejoue? o/n\n"))
+        replay = input("On rejoue? o/n\n")
         replay = replay.upper()
         if replay == "N":
             print("A bientôt !")
